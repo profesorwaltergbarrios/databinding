@@ -1,0 +1,23 @@
+<div class="container-fluid">
+
+  <div class="card" style="width: 20rem;">
+    <div class="card-block">
+
+      <div class="card-block">
+        <img class="card-img-top img-fluid" [src]="libro.imagen" (mousemove)="getCoord($event)" height="122" alt="Imagen no encontrada">
+        <h4 class="card-title">{{libro.titulo}}</h4>
+        <h6 class="card-subtitle mb-2 text-muted">{{libro.autor}}</h6>
+      </div>
+      <ul class="list-group list-group-push">
+        <li class="list-group-item">Unidades disponibles: {{libro.stock}}</li>
+        <li class="list-group-item">Precio: {{libro.precio | currency:'$':true}}</li>
+
+      </ul>
+      <div class="text-center">
+        <button [disabled]="libro.cantidad<=0" (click)="downCantidad(libro)">-</button>
+        <input type="text" [(ngModel)]="libro.cantidad" size="2">
+        <button (click)="upCantidad(libro)">+</button>
+        </div>
+
+    </div>
+  </div>
